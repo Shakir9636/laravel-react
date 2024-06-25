@@ -1,0 +1,35 @@
+composer create-project laravel/laravel laravel11-react-inertia
+
+//authentication
+composer require laravel/breeze --dev
+php artisan breeze:install
+
+php artisan serve
+npm run dev
+php artisan tinker
+
+//query data print and database in object like id ,name
+php artisan tinker
+\App\Models\Task::query()->paginate(5)->all()
+
+//f = factory and m = migration
+php artisan make:model Project -fm
+php artisan make:model Task -fm
+
+
+//seeder
+php artisan migrate --seed
+
+php artisan make:controller ProjectController --model=Project --requests --resource
+php artisan make:controller TaskController --model=Task --requests --resource
+php artisan make:controller UserController --model=User --requests --resource
+
+php artisan route:list
+php artisan make:resource ProjectRecource
+php artisan make:resource UserRecource
+
+ php artisan storage:link
+
+//tailwind.config.js
+darkMode:'class'
+
